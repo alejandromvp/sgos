@@ -15,5 +15,18 @@ class SgosPropiedadesSeeder extends Seeder
         SgosPropiedades::create([
         	'desc_propiedad' => 'propiedad1',
         ]);
+        SgosPropiedades::create([
+            'desc_propiedad' => 'propiedad2',
+        ]);
+        SgosPropiedades::create([
+            'desc_propiedad' => 'propiedad3',
+        ]);
+        SgosPropiedades::create([
+            'desc_propiedad' => 'propiedad4',
+        ]);
+        SgosPropiedades::create([
+            'desc_propiedad' => 'propiedad5',
+        ]);
     }
+
 }

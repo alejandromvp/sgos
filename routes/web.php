@@ -15,4 +15,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::resource('bancos', 'BancosController');
+Route::resource('bancos', 'Adm_Sgos\BancosController');
+
+Route::resource('propiedades', 'Adm_Sgos\PropiedadesController');
+
+Route::resource('bovedas', 'Adm_Sgos\BovedasController');
+
+Route::resource('divisas', 'Adm_Sgos\DivisasController');
+
+Route::resource('sectores', 'Adm_Sgos\SectorController');

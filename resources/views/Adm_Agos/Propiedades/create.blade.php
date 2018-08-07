@@ -1,5 +1,5 @@
 @extends('home')
 
 @section('contenido')
-	<h1>Administracion sgos propiedades</h1>
+<h1>create</h1>
 @stop

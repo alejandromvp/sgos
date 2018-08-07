@@ -23,14 +23,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 </head>
-<body style="background: #581845;">
+<body style="background: #FFA07A;">
 <div class="container">     
 <div class="row"> 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-size: 40px;">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+        <a href="{{route('propiedades.index')}}" class="nav-link"> Propiedades</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/Adm_Agos/bovedas">Bovedas</a>
@@ -43,9 +43,6 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/Adm_Agos/bancos">Bancos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Adm_Agos/propiedades">Propiedades</a>
       </li>
     </ul>
   </div>
