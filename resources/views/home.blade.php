@@ -33,16 +33,16 @@
         <a href="{{route('propiedades.index')}}" class="nav-link"> Propiedades</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Adm_Agos/bovedas">Bovedas</a>
+        <a href="{{route('bovedas.index')}}" class="nav-link"> Bovedas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Adm_Agos/divisas">Divisas</a>
+        <a href="{{route('divisas.index')}}" class="nav-link"> Divisas </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Adm_Agos/sector">Sector</a>
+        <a href="{{route('sectores.index')}}" class="nav-link"> Sectores </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Adm_Agos/bancos">Bancos</a>
+        <a href="{{route('bancos.index')}}" class="nav-link"> Bancos </a>
       </li>
     </ul>
   </div>

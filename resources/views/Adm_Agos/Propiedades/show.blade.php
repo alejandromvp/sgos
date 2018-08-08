@@ -16,6 +16,8 @@
 				<td style="background: white;font-weight: bold;">{{ $propiedad->desc_propiedad }}</td>
 		</tbody>
 	</table>
+	
+	<a href="{{route('propiedades.index')}}" class="btn btn-primary">Regresar al inicio</a>
 @stop
 
 

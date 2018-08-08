@@ -3,6 +3,7 @@
 @section('contenido')
 <br><br>
 	<h1>Administracion Sgos Propiedades</h1>
+	<a href="{{ route('propiedades.create')}}" class="btn btn-primary" style="margin-bottom: 0.9%">Crear Propiedad</a>
 	<table class="table table-condensed">
 		<thead class="thead-dark">
 			<tr>
@@ -14,7 +15,7 @@
 		<tbody class="thead-light">
 			@foreach($propiedades as $propiedad)
 			<tr >
-				<td class="success">{{ $propiedad->id }}</td>
+				<td class="success">{{ $propiedad->id_propiedad }}</td>
 				<td style="font-weight: bold;">{{ $propiedad->desc_propiedad }}</td>
 				<td>
 					<a href="{{route('propiedades.edit', $propiedad->id_propiedad)}}" class="btn btn-info btn-xs">editar</a>
