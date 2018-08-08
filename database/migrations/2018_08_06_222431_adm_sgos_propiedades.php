@@ -14,8 +14,8 @@ class AdmSgosPropiedades extends Migration
     public function up()
     {
         Schema::create('adm_sgos_propiedades', function (Blueprint $table) {
-            $table->increments('id_propiedad');
-            $table->string('desc_propiedad', 45)->unique();
+            $table->string('id_propiedad')->unique();
+            $table->string('desc_propiedad', 45);
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

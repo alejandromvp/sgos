@@ -14,6 +14,12 @@
 	<form action="{{ route('divisas.update', $divisa->id_divisa) }}" method="POST">
 	{{csrf_field()}}
 	{{method_field('PUT')}}
+		<label for=""> id propiedad</label>
+		<select class="form-control" name="id_propiedad">
+			@foreach ($propiedades as $propiedad)
+                <option >{{$propiedad->id_propiedad}}</option>
+            @endforeach
+		</select>
 		<label for="desc_divisa">
 			Nombre
 		<input type="text" name="desc_divisa" id="desc_divisa" value="{{$divisa->desc_divisa }}" class="form-control">

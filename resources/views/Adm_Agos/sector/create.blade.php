@@ -14,8 +14,13 @@
 	<form action="{{ route('sectores.store')}}" method="POST">
 	{{csrf_field()}}
 	{{method_field('POST')}}
+	
 		<label for="id_propiedad" style="font-weight: bold;">Id Propiedad:	
-		<input type="text" name="id_propiedad" id="id_propiedad" value="{{old('id_propiedad')}}" class="form-control">
+		<select class="form-control" name="id_propiedad">
+			@foreach ($propiedades as $propiedad)
+                <option >{{$propiedad->id_propiedad}}</option>
+            @endforeach
+		</select>
 		<hr>
 		<label for="desc_sector" style="font-weight: bold;">Descripcion Sector:	
 		<input type="text" name="desc_sector" id="desc_sector" value="{{old('desc_sector')}}" class="form-control">

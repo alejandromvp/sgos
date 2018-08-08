@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adm_Sgos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\adm\SgosSector;
+use App\Models\adm\SgosPropiedades;
 use DB;
 use Carbon\Carbon;;
 
@@ -24,7 +25,8 @@ class SectorController extends Controller
 
     public function create()
     {
-        return view('Adm_agos.sector.create');
+        $propiedades = SgosPropiedades::all();
+        return view('Adm_agos.sector.create', compact('propiedades'));
     }
 
 
@@ -34,7 +36,7 @@ class SectorController extends Controller
             'id_propiedad' => "required",
             'desc_sector' => "required|unique:adm_sgos_sector,desc_sector",
         ], [
-            'desc_propiedad' => 'El campo id propiedad es obligatorio',
+            'id_propiedad' => 'El campo id propiedad es obligatorio',
             'desc_sector' => 'El campo descripcion sector es obligatorio',
         ]);
 
@@ -55,21 +57,24 @@ class SectorController extends Controller
 
     public function edit($id)
     {
+        $propiedades = SgosPropiedades::all();
         //$mensaje = DB::table('messages')->where('id', $id)->first();
         $sector = SgosSector::where('id_sector', $id)->first();
-        return view('Adm_agos.sector.edit', compact('sector')); 
+        return view('Adm_agos.sector.edit', compact('sector', 'propiedades')); 
     }
 
     public function update(Request $request, $id)
     {
         $sector = SgosSector::where('id_sector', $id)->first();
         $validatedData = $request->validate([
-            'desc_sector' => "required|unique:adm_sgos_sector,desc_sector",
+            'desc_sector' => "required",
+            'id_propiedad' => "required",
         ], [
             'desc_sector' => 'El campo nombre es obligatorio',
         ]);
 
         DB::table('adm_sgos_sector')->where('id_sector', $id)->update([
+            "id_propiedad" => $request->input('id_propiedad'),
             "desc_sector" => $request->input('desc_sector'),
             "updated_at" => Carbon::now(),
         ]);

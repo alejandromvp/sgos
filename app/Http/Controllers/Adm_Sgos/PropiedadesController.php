@@ -27,12 +27,15 @@ class PropiedadesController extends Controller
     public function store(Request $request)
     {
          $validatedData = $request->validate([
-            'desc_propiedad' => "required|unique:adm_sgos_propiedades,desc_propiedad",
+            'id_propiedad' => "required|unique:adm_sgos_propiedades,id_propiedad",
+            'desc_propiedad' => "required",
         ], [
+            'id_propiedad' => 'El campo nombre es obligatorio',
             'desc_propiedad' => 'El campo nombre es obligatorio',
         ]);
 
         SgosPropiedades::create([
+           'id_propiedad' => $validatedData['id_propiedad'],
            'desc_propiedad' => $validatedData['desc_propiedad'],
         ]);
 
@@ -57,8 +60,10 @@ class PropiedadesController extends Controller
     {
         $propiedad = SgosPropiedades::where('id_propiedad', $id)->first();
         $validatedData = $request->validate([
-            'desc_propiedad' => "required|unique:adm_sgos_propiedades,desc_propiedad",
+            'desc_propiedad' => "required",
+            'desc_propiedad' => "required",
         ], [
+            'desc_propiedad' => "este campo es nesesario",
             'desc_propiedad' => 'El campo nombre es obligatorio',
         ]);
 

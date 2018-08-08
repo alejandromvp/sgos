@@ -15,7 +15,12 @@
 	{{csrf_field()}}
 	{{method_field('POST')}}
 		<label for="id_propiedad" style="font-weight: bold;">Id Propiedad:	
-		<input type="text" name="id_propiedad" id="id_propiedad" value="{{old('id_propiedad')}}" class="form-control">
+		<select class="form-control" name="id_propiedad">
+			@foreach ($propiedades as $propiedad)
+                <option >{{$propiedad->id_propiedad}}</option>
+            @endforeach
+		</select>
+
 		<hr>
 		<label for="desc_divisa" style="font-weight: bold;">Descripcion Divisa:	
 		<input type="text" name="desc_divisa" id="desc_divisa" value="{{old('desc_divisa')}}" class="form-control">

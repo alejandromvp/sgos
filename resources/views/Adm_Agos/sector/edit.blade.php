@@ -14,6 +14,12 @@
 	<form action="{{ route('sectores.update', $sector->id_sector) }}" method="POST">
 	{{csrf_field()}}
 	{{method_field('PUT')}}
+	<label for=""> id propiedad</label>
+		<select class="form-control" name="id_propiedad">
+			@foreach ($propiedades as $propiedad)
+                <option >{{$propiedad->id_propiedad}}</option>
+            @endforeach
+		</select>
 		<label for="desc_sector">
 			Nombre
 		<input type="text" name="desc_sector" id="desc_sector" value="{{$sector->desc_sector }}" class="form-control">

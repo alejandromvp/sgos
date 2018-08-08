@@ -15,7 +15,8 @@ class AdmSgosBovedas extends Migration
     {
         Schema::create('adm_sgos_bovedas', function (Blueprint $table) {
             $table->increments('id_boveda');
-            $table->integer('id_propiedad')->references('id_propiedad')->on('adm_sgos_propiedades');
+            $table->string('id_propiedad');
+            $table->foreign('id_propiedad')->references('id_propiedad')->on('adm_sgos_propiedades');
             $table->string('desc_boveda', 45)->unique();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();

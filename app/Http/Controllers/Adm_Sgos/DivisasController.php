@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adm_Sgos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\adm\SgosDivisas;
+use App\Models\adm\SgosPropiedades;
 use DB;
 use Carbon\Carbon;
 
@@ -24,7 +25,8 @@ class DivisasController extends Controller
 
     public function create()
     {
-        return view('Adm_agos.Divisas.create');
+        $propiedades = SgosPropiedades::all();
+        return view('Adm_agos.Divisas.create', compact('propiedades'));
     }
 
 
@@ -55,21 +57,23 @@ class DivisasController extends Controller
 
     public function edit($id)
     {
-        //$mensaje = DB::table('messages')->where('id', $id)->first();
+        $propiedades = SgosPropiedades::all();
         $divisa = SgosDivisas::where('id_divisa', $id)->first();
-        return view('Adm_Agos.Divisas.edit', compact('divisa')); 
+        return view('Adm_Agos.Divisas.edit', compact('divisa', 'propiedades')); 
     }
 
     public function update(Request $request, $id)
     {
         $divisa = SgosDivisas::where('id_divisa', $id)->first();
         $validatedData = $request->validate([
-            'desc_divisa' => "required|unique:adm_sgos_divisas,desc_divisa",
+            'id_propiedad' => "required",
+            'desc_divisa' => "required",
         ], [
             'desc_divisa' => 'El campo nombre es obligatorio',
         ]);
 
         DB::table('adm_sgos_divisas')->where('id_divisa', $id)->update([
+            "id_propiedad" => $request->input('id_propiedad'),
             "desc_divisa" => $request->input('desc_divisa'),
             "updated_at" => Carbon::now(),
         ]);

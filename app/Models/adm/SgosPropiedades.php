@@ -10,6 +10,6 @@ class SgosPropiedades extends Model
     protected $table = 'adm_sgos_propiedades';
     public $timestamps = true;
     protected $fillable = [
-        'desc_propiedad',
+        'desc_propiedad','id_propiedad',
     ];
 }

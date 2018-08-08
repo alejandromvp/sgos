@@ -14,9 +14,14 @@
 	<form action="{{ route('propiedades.store')}}" method="POST">
 	{{csrf_field()}}
 	{{method_field('POST')}}
-		<label for="desc_propiedad" style="font-weight: bold;">Nombre Propiedad:	
-		<input type="text" name="desc_propiedad" id="desc_propiedad" value="{{old('desc_propiedad')}}" class="form-control">
+		<label for="id_propiedad" style="font-weight: bold;">id Propiedad:
+		<input type="text" name="id_propiedad" id="id_propiedad" value="{{old('id_propiedad')}}" class="form-control" placeholder="ingrese id propiedad">
+
+		<label for="desc_propiedad" style="font-weight: bold;">descripcion Propiedad:	
+		<input type="text" name="desc_propiedad" id="desc_propiedad" value="{{old('desc_propiedad')}}" class="form-control" placeholder="ingrese descripcion propiedad">
+		
 		<hr>
 		<input type="submit" value="enviar" class="btn btn-primary">
 	</form>
 @stop
+

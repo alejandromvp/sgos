@@ -7,7 +7,7 @@
 	<table class="table table-condensed">
 		<thead class="thead-dark">
 			<tr>
-				<th>Id</th>
+				<th>Id Propiedad</th>
 				<th>descripcion Propiedad</th>
 				<th>Accion</th>
 			</tr>

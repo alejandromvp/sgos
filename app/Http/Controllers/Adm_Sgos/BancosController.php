@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adm_Sgos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\adm\SgosBancos;
+use App\Models\adm\SgosPropiedades;
 use DB;
 use Carbon\Carbon;
 
@@ -24,7 +25,8 @@ class BancosController extends Controller
 
     public function create()
     {
-        return view('Adm_agos.Bancos.create');
+        $propiedades = SgosPropiedades::all();
+        return view('Adm_agos.Bancos.create', compact('propiedades'));
     }
 
 
@@ -56,20 +58,24 @@ class BancosController extends Controller
     public function edit($id)
     {
         //$mensaje = DB::table('messages')->where('id', $id)->first();
+        $propiedades = SgosPropiedades::all();
         $banco = SgosBancos::where('id_banco', $id)->first();
-        return view('Adm_agos.Bancos.edit', compact('banco')); 
+        return view('Adm_agos.Bancos.edit', compact('banco', 'propiedades')); 
     }
 
     public function update(Request $request, $id)
     {
         $banco = SgosBancos::where('id_banco', $id)->first();
         $validatedData = $request->validate([
-            'desc_banco' => "required|unique:adm_sgos_bancos,desc_banco",
+            'id_propiedad' => "required",
+            'desc_banco' => "required",
         ], [
+            'desc_banco' => "este campo es nesesario",
             'desc_banco' => 'El campo banco es obligatorio',
         ]);
 
         DB::table('adm_sgos_bancos')->where('id_banco', $id)->update([
+            "id_propiedad" => $request->input('id_propiedad'),
             "desc_banco" => $request->input('desc_banco'),
             "updated_at" => Carbon::now(),
         ]);
